@@ -43,7 +43,7 @@ public class TourService {
 
         // Check if TourPackage already exists
         // If not create it
-        TourPackage tourPackage = tourPackageRepository.findById(tourPackageName)
+        TourPackage tourPackage = tourPackageRepository.findByName(tourPackageName)
                 .orElseThrow(() -> new RuntimeException("Tour Package does not exist: " + tourPackageName));
 
         // If we find a tourpackage
