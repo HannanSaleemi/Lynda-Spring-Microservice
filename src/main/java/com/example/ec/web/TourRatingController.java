@@ -2,7 +2,6 @@ package com.example.ec.web;
 
 import com.example.ec.domain.Tour;
 import com.example.ec.domain.TourRating;
-import com.example.ec.domain.TourRatingPk;
 import com.example.ec.repo.TourRatingRepository;
 import com.example.ec.repo.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;

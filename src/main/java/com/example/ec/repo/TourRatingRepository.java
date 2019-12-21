@@ -2,7 +2,6 @@ package com.example.ec.repo;
 
 
 import com.example.ec.domain.TourRating;
-import com.example.ec.domain.TourRatingPk;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

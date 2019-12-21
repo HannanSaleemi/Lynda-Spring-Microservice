@@ -1,7 +1,5 @@
 package com.example.ec;
 
-import com.example.ec.domain.Difficulty;
-import com.example.ec.domain.Region;
 import com.example.ec.service.TourPackageService;
 import com.example.ec.service.TourService;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -1,7 +1,5 @@
 package com.example.ec.service;
 
-import com.example.ec.domain.Difficulty;
-import com.example.ec.domain.Region;
 import com.example.ec.domain.Tour;
 import com.example.ec.domain.TourPackage;
 import com.example.ec.repo.TourPackageRepository;
