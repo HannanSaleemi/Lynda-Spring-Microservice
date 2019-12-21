@@ -7,6 +7,13 @@ import com.example.ec.repo.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
+/**
+ * Tour  Service
+ *
+ * Created by Mary Ellen Bowman
+ */
 @Service
 public class TourService {
     private TourRepository tourRepository;
@@ -19,36 +26,18 @@ public class TourService {
     }
 
     /**
-     * Create a new Tour Object and persist it to the Database.
-     * <p>
-     * Before we create a tour - we need a tourpackagae for it
+     * Create a new Tour Object and persist it to the Database
      *
-     * @param title           title
-     * @param description     description
-     * @param blurb           blurb
-     * @param price           price
-     * @param duration        duration
-     * @param bullets         comma-separated bullets
-     * @param keywords        keywords
-     * @param tourPackageName tour package name
-     * @param difficulty      difficulty
-     * @param region          region
-     * @return Tour Entity
+     * @param title Title of the tour
+     * @param tourPackageName tour Package of the tour
+     * @param details Extra details about the tour
+     * @return Tour
      */
-    public Tour createTour(String title, String description, String blurb, Integer price,
-                           String duration, String bullets,
-                           String keywords, String tourPackageName, Difficulty difficulty, Region region) {
-
-        // Check if TourPackage already exists
-        // If not create it
-        TourPackage tourPackage = tourPackageRepository.findByName(tourPackageName).orElseThrow(()->
+    public Tour createTour(String title, String tourPackageName, Map<String, String> details) {
+        TourPackage tourPackage = tourPackageRepository.findByName(tourPackageName).orElseThrow(() ->
                 new RuntimeException("Tour package does not exist: " + tourPackageName));
-
-        // If we find a tourpackage
-        // We create a tour in the DB
-        return tourRepository.save(new Tour(title, description, blurb, price, duration, bullets, keywords, tourPackage, difficulty, region));
+        return tourRepository.save(new Tour(title, tourPackage, details));
     }
-
     /**
      * Calculate the number of Tours in the Database.
      *
@@ -58,3 +47,4 @@ public class TourService {
         return tourRepository.count();
     }
 }
+
