@@ -14,13 +14,16 @@ import javax.validation.constraints.Size;
  */
 public class RatingDto {
 
+    // Validation - min 0 max 5
     @Min(0)
     @Max(5)
     private Integer score;
 
+    // Validation - max size  255
     @Size(max = 255)
     private String comment;
 
+    // Validation - Can't be null
     @NotNull
     private Integer customerId;
 
